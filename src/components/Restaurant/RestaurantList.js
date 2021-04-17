@@ -1,10 +1,12 @@
 import React, { useState, useEffect } from 'react';
 import { API, graphqlOperation } from 'aws-amplify';
 import { listRestaurants } from '../../graphql/queries';
-import RestaurantCard from './RestaurantCard'
+import RestaurantCard from './RestaurantCard';
+import { RestaurantForm } from './RestaurantForm';
 
 const RestaurantList = () => {
 	const [restaurants, setRestaurants] = useState([]);
+	const [restaurant, setRestaurant] = useState({ name: '', description: '' });
 
 	useEffect(() => {
 		if (restaurants.length <= 0) {
@@ -13,15 +15,23 @@ const RestaurantList = () => {
 			);
 		}
 	});
-	console.log(restaurants);
+
 	return (
-    <div className="Restaurant List">
-     <h1>Restaurants</h1>
-      {restaurants.map((restaurant, id) => (
-        <RestaurantCard key={id} restaurant={restaurant}/>
-      ))}
-    </div>
-  )
+		<div className='Restaurants Page'>
+			<h1>Restaurants</h1>
+			<RestaurantForm
+				restaurant={restaurant}
+				setRestaurant={setRestaurant}
+				setRestaurants={setRestaurants}
+				restaurants={restaurants}
+			/>
+			<div>
+				{restaurants.map((rest, id) => (
+					<RestaurantCard key={id} restaurant={rest} />
+				))}
+			</div>
+		</div>
+	);
 };
 
 export default RestaurantList;
