@@ -10,6 +10,14 @@
       "StackName": "amplify-restaurantapp-dev-133157",
       "StackId": "arn:aws:cloudformation:us-east-1:681716043805:stack/amplify-restaurantapp-dev-133157/cfd9fc20-9fa2-11eb-b40b-0ad5dcc6785b",
       "AmplifyAppId": "d15tkk457od743"
+    },
+    "categories": {
+      "function": {
+        "newRestaurant": {
+          "deploymentBucketName": "amplify-restaurantapp-dev-133157-deployment",
+          "s3Key": "amplify-builds/newRestaurant-4c69302f507747736d37-build.zip"
+        }
+      }
     }
   }
 }
